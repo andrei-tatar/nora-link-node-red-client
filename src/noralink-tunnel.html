@@ -1,0 +1,43 @@
+<script type="text/javascript">
+  RED.nodes.registerType("noralink-tunnel", {
+    category: "noralink",
+    color: 'rgb(235, 227, 141)',
+    icon: 'noralink.png',
+    defaults: {
+      name: { value: "Node-RED" },
+      subdomain: { value: "nodered", required: true },
+      url: { value: "http://localhost:1880", required: true },
+      config: {
+        type: "noralink-config",
+        required: true,
+      },
+    },
+    inputs: 0,
+    outputs: 1,
+    paletteLabel: "tunnel",
+    label: function () {
+      return this.name || this.url || "tunnel";
+    },
+  });
+</script>
+
+<script type="text/x-red" data-template-name="noralink-tunnel">
+  <div class="form-row">
+    <label for="node-input-config"><i class="fa fa-table"></i> Config</label>
+    <input type="text" id="node-input-config">
+  </div>
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-subdomain"><i class="fa fa-address-card-o"></i> Subdomain</label>
+    <input type="text" id="node-input-subdomain">
+  </div>
+  <div class="form-row">
+    <label for="node-input-url"><i class="fa fa-link"></i> Url</label>
+    <input type="text" id="node-input-url">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="noralink-tunnel"></script>
