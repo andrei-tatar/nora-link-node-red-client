@@ -18,6 +18,7 @@ export default function (RED: any) {
                     return EMPTY;
                 }
                 const client = new Client({
+                    secure: true,
                     apiKey: apikey,
                     tunnels,
                     logger: RED.log,
