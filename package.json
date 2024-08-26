@@ -1,6 +1,6 @@
 {
   "name": "@nora-link/node-red-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Node-RED plugin for noralink.eu",
   "main": "index.js",
   "scripts": {
