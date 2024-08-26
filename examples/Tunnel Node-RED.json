@@ -1,0 +1,22 @@
+[
+    {
+        "id": "2fdf629c887de70b",
+        "type": "noralink-tunnel",
+        "z": "2de9a494ac1d6c71",
+        "name": "Node-RED",
+        "subdomain": "nodered",
+        "url": "http://localhost:1880",
+        "config": "6de738ad540a91a9",
+        "x": 60,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6de738ad540a91a9",
+        "type": "noralink-config",
+        "name": "NORA link config",
+        "host": "noralink.eu"
+    }
+]

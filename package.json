@@ -32,6 +32,9 @@
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2"
   },
+  "engines": {
+    "node": ">=12.19"
+  },
   "node-red": {
     "version": ">=3.0.0",
     "nodes": {
