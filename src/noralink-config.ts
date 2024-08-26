@@ -1,5 +1,5 @@
-import { BehaviorSubject, debounceTime, distinctUntilChanged, EMPTY, merge, Observable, ReplaySubject, share, Subject, switchMap, takeUntil } from "rxjs";
-import { ConfigNode, NodeInterface } from "./types";
+import { BehaviorSubject, debounceTime, distinctUntilChanged, merge, Observable, of, ReplaySubject, share, Subject, switchMap, takeUntil } from "rxjs";
+import type { ConfigNode, NodeInterface } from "./types";
 import { Client, TunnelOptions } from "@nora-link/client/dist/client";
 
 export default function (RED: any) {
@@ -15,7 +15,7 @@ export default function (RED: any) {
             distinctUntilChanged((a, b) => JSON.stringify(a) === JSON.stringify(b)),
             switchMap(tunnels => {
                 if (!tunnels || !apikey) {
-                    return EMPTY;
+                    return of('invalid-config' as const);
                 }
                 const client = new Client({
                     secure: true,

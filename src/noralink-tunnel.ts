@@ -1,10 +1,11 @@
-import { ConfigNode, NodeInterface } from "./types";
+import { of } from "rxjs";
+import type { ConfigNode, NodeInterface } from "./types";
 
 export default function (RED: any) {
     RED.nodes.registerType('noralink-tunnel', function (this: NodeInterface, config: any) {
         RED.nodes.createNode(this, config);
 
-        const noralinkConfig: ConfigNode = RED.nodes.getNode(config.config);
+        const noralinkConfig: ConfigNode | null = RED.nodes.getNode(config.config);
 
         let url = config.url;
 
@@ -14,18 +15,19 @@ export default function (RED: any) {
             url = `http://${url}`;
         }
 
-        const subscription = noralinkConfig
-            .registerTunnel({
+        const subscription = (!noralinkConfig
+            ? of('config missing')
+            : noralinkConfig.registerTunnel({
                 label: config.name,
                 subdomain: config.subdomain,
                 url,
             })
-            .subscribe(status => {
-                this.status({
-                    fill: status === 'connected' ? 'blue' : 'green',
-                    text: status,
-                });
+        ).subscribe(status => {
+            this.status({
+                fill: status === 'connected' ? 'blue' : 'red',
+                text: status,
             });
+        });
 
         this.on('close', () => subscription.unsubscribe());
     });

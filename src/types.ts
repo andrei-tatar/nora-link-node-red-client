@@ -39,5 +39,5 @@ export interface Logger {
 }
 
 export interface ConfigNode {
-    registerTunnel(options: TunnelOptions): Observable<'connecting' | 'connected'>;
+    registerTunnel(options: TunnelOptions): Observable<'connecting' | 'connected' | 'disconnected' | 'invalid-config'>;
 }
