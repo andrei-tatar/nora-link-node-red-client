@@ -24,7 +24,7 @@ export default function (RED: any) {
             })
         ).subscribe(status => {
             this.status({
-                fill: status === 'connected' ? 'blue' : 'red',
+                fill: status === 'connected' ? 'blue' : (status === 'idle' ? 'yellow' : 'red'),
                 text: status,
             });
         });

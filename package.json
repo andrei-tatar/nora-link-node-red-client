@@ -28,7 +28,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@nora-link/client": "^1.0.15",
+    "@nora-link/client": "^1.1.0",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2"
   },
