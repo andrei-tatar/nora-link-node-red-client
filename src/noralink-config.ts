@@ -18,6 +18,7 @@ export default function (RED: any) {
                     return of('invalid-config' as const);
                 }
                 const client = new Client({
+                    clientId: config.id?.replace(/[.#$\[\]]/g, ':'),
                     secure: true,
                     hostname: config.host,
                     apiKey: apikey,
